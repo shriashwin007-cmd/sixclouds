@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Word3D } from "@/app/components/Text3D";
 import FloatingPixels from "@/app/components/FloatingPixels";
+import OpenStatus from "@/app/components/OpenStatus";
+import TiltCard from "@/app/components/TiltCard";
 
 const TYPED_STRINGS = [
   "GAME ABOVE THE REST.",
@@ -123,9 +125,13 @@ export default function Hero() {
           <span style={{ animation: "blink 1s step-end infinite", color: "#FFD700" }}>▌</span>
         </div>
 
-        <p style={{ color: "rgba(240,240,240,0.45)", fontSize: "0.88rem", marginBottom: 44, letterSpacing: "0.04em" }}>
+        <p style={{ color: "rgba(240,240,240,0.45)", fontSize: "0.88rem", marginBottom: 18, letterSpacing: "0.04em" }}>
           Pallavan Salai · Kennedy Square · Perambur, Chennai
         </p>
+
+        <div style={{ marginBottom: 40 }}>
+          <OpenStatus />
+        </div>
 
         <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="#book" className="pixel-btn">Book a Session</a>
@@ -135,10 +141,12 @@ export default function Hero() {
         {/* Stats */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginTop: 72, maxWidth: 680, marginInline: "auto" }}>
           {STATS.map((s) => (
-            <div key={s.label} className="glass" style={{ padding: "18px 10px", textAlign: "center" }}>
-              <div className="pixel" style={{ fontSize: "clamp(0.7rem,1.8vw,0.95rem)", color: "#FFD700", marginBottom: 8 }}>{s.value}</div>
-              <div className="mono" style={{ fontSize: "0.58rem", color: "rgba(240,240,240,0.45)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{s.label}</div>
-            </div>
+            <TiltCard key={s.label} max={14}>
+              <div className="glass" style={{ padding: "18px 10px", textAlign: "center" }}>
+                <div className="pixel" style={{ fontSize: "clamp(0.7rem,1.8vw,0.95rem)", color: "#FFD700", marginBottom: 8 }}>{s.value}</div>
+                <div className="mono" style={{ fontSize: "0.58rem", color: "rgba(240,240,240,0.45)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{s.label}</div>
+              </div>
+            </TiltCard>
           ))}
         </div>
       </div>

@@ -5,6 +5,7 @@ import ShaderBackground from "@/app/components/ShaderBackground";
 import Atmosphere from "@/app/components/Atmosphere";
 import StripeDivider from "@/app/components/StripeDivider";
 import GameHUD from "@/app/components/GameHUD";
+import ClickFX from "@/app/components/ClickFX";
 import JellyScroll from "@/app/components/JellyScroll";
 import MiniGame from "@/app/components/MiniGame";
 import ScrollVideoIntro from "@/app/components/ScrollVideoIntro";
@@ -47,6 +48,7 @@ export default function Home() {
         </div>
         <Atmosphere />
         <GameHUD />
+        <ClickFX />
         <ChatWidget />
       </ToastProvider>
     </CartProvider>

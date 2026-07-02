@@ -84,6 +84,9 @@ export function Word3D({
             const el = e.currentTarget;
             el.style.transform = `translateY(-14px) rotate(${(Math.random() - 0.5) * 24}deg) scale(1.25)`;
             el.style.color = "#fff";
+            if (e.pointerType !== "mouse") {
+              setTimeout(() => { el.style.transform = ""; el.style.color = ""; }, 500);
+            }
           }}
           onPointerLeave={(e) => {
             const el = e.currentTarget;

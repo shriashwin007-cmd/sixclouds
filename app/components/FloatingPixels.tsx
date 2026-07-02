@@ -1,5 +1,7 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { award } from "@/app/components/GameHUD";
+import { sfx } from "@/app/lib/sfx";
 
 /*
   Parallax floating pixel emojis — drift on their own and shift
@@ -19,6 +21,7 @@ const SPRITES = [
 
 export default function FloatingPixels() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const [popped, setPopped] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -45,16 +48,25 @@ export default function FloatingPixels() {
   }, []);
 
   return (
-    <div ref={wrapRef} aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-      {SPRITES.map((s, i) => (
+    <div ref={wrapRef} style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+      {SPRITES.map((s, i) => popped.has(i) ? null : (
         <span
           key={i}
           data-depth={s.depth}
+          onPointerDown={() => {
+            setPopped((p) => new Set(p).add(i));
+            sfx.smash();
+            award(2, "✨ PIXEL POP");
+            setTimeout(() => setPopped((p) => { const n = new Set(p); n.delete(i); return n; }), 9000);
+          }}
+          role="button"
+          aria-label="pop pixel"
           style={{
             position: "absolute", left: s.left, top: s.top,
-            fontSize: s.size, opacity: 0.5,
+            fontSize: s.size, opacity: 0.55,
             filter: "drop-shadow(0 0 8px rgba(255,215,0,0.35)) saturate(0.9)",
             willChange: "translate",
+            pointerEvents: "auto", cursor: "pointer",
           }}
         >
           <span style={{ display: "inline-block", animation: `fpDrift ${s.dur}s ease-in-out ${i * 0.6}s infinite` }}>

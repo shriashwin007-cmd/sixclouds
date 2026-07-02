@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import SectionHeader from "@/app/components/SectionHeader";
 import { award } from "@/app/components/GameHUD";
+import { sfx } from "@/app/lib/sfx";
 
 /*
   SNACK SMASH — 20-second whack-a-target arcade mini game.
@@ -37,6 +38,7 @@ export default function MiniGame() {
     setOver(false);
     setPlaying(true);
     setGrid(Array(CELLS).fill(null));
+    sfx.start();
   }, []);
 
   /* game loop */
@@ -72,6 +74,7 @@ export default function MiniGame() {
           setPlaying(false);
           setOver(true);
           setGrid(Array(CELLS).fill(null));
+          sfx.over();
           const final = scoreRef.current;
           setBest((b) => {
             const nb = Math.max(b, final);
@@ -93,6 +96,9 @@ export default function MiniGame() {
     const target = grid[cell];
     if (!target) return;
     const delta = target.kind === "good" ? 10 : target.kind === "star" ? 30 : -15;
+    if (target.kind === "bomb") sfx.bomb();
+    else if (target.kind === "star") sfx.coin();
+    else sfx.smash();
     scoreRef.current = Math.max(0, scoreRef.current + delta);
     setScore(scoreRef.current);
     setGrid((g) => { const n = [...g]; n[cell] = null; return n; });

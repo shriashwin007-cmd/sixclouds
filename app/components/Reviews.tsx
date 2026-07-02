@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Reveal3D } from "@/app/components/Text3D";
 import SectionHeader from "@/app/components/SectionHeader";
+import TiltCard from "@/app/components/TiltCard";
 
 const REVIEWS = [
   { name: "Arun K.", stars: 5, text: "Best gaming cafe in Perambur by far! Private rooms are a game changer. Came with my squad for 3 hours and we didn't even realize the time.", time: "2 weeks ago" },
@@ -26,6 +27,7 @@ export default function Reviews() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
           {REVIEWS.map((r, i) => (
             <Reveal3D key={i} delay={i * 0.1} from={i % 2 === 0 ? "left" : "right"}>
+            <TiltCard max={7} style={{ height: "100%" }}>
             <div
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
@@ -47,6 +49,7 @@ export default function Reviews() {
               </div>
               <p style={{ color: "rgba(240,240,240,0.72)", fontSize: "0.92rem", lineHeight: 1.75 }}>&quot;{r.text}&quot;</p>
             </div>
+            </TiltCard>
             </Reveal3D>
           ))}
         </div>

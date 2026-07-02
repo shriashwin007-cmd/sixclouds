@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { sfx, isMuted, setMuted } from "@/app/lib/sfx";
 
 /*
   SIXCLOUDS arcade gamification layer.
@@ -37,6 +38,8 @@ export default function GameHUD() {
   const [coins, setCoins] = useState<Coin[]>([]);
   const [scrollP, setScrollP] = useState(0);
   const [bump, setBump] = useState(false);
+  const [sound, setSound] = useState(false);
+  const chipTaps = useRef<number[]>([]);
   const counter = useRef(0);
   const xpRef = useRef(0);
   const seen = useRef<Set<string>>(new Set());
@@ -55,12 +58,15 @@ export default function GameHUD() {
     pushToast(reason, amount);
     setBump(true);
     setTimeout(() => setBump(false), 350);
+    sfx.xp();
+    if (navigator.vibrate) navigator.vibrate(18);
   }, [pushToast]);
 
   /* load saved XP + listen for awards */
   useEffect(() => {
     xpRef.current = parseInt(localStorage.getItem("sc-xp") ?? "0", 10) || 0;
     setXp(xpRef.current);
+    setSound(!isMuted());
     try { seen.current = new Set(JSON.parse(localStorage.getItem("sc-seen") ?? "[]")); } catch {}
 
     const onAward = (e: Event) => {
@@ -130,6 +136,64 @@ export default function GameHUD() {
     return () => window.removeEventListener("click", onClick);
   }, [gain]);
 
+  /* coin rain — used by Konami + shake secrets */
+  const coinRain = useCallback(() => {
+    for (let i = 0; i < 12; i++) {
+      setTimeout(() => {
+        const id = ++counter.current;
+        setCoins((c) => [...c, { id, x: 5 + Math.random() * 88, y: 10 + Math.random() * 70 }]);
+        setTimeout(() => setCoins((c) => c.filter((k) => k.id !== id)), 5000);
+      }, i * 140);
+    }
+  }, []);
+
+  /* secret: Konami code (desktop keyboard) */
+  useEffect(() => {
+    const SEQ = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+    let pos = 0;
+    const onKey = (e: KeyboardEvent) => {
+      pos = e.key === SEQ[pos] ? pos + 1 : (e.key === SEQ[0] ? 1 : 0);
+      if (pos === SEQ.length) {
+        pos = 0;
+        if (!seen.current.has("konami")) {
+          seen.current.add("konami");
+          localStorage.setItem("sc-seen", JSON.stringify([...seen.current]));
+          sfx.start();
+          coinRain();
+          gain(200, "🎖 KONAMI CODE!");
+        } else {
+          coinRain();
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [gain, coinRain]);
+
+  /* secret: shake your phone */
+  useEffect(() => {
+    let lastMag = 0, cool = 0;
+    const onMotion = (e: DeviceMotionEvent) => {
+      const a = e.accelerationIncludingGravity;
+      if (!a) return;
+      const mag = Math.abs((a.x ?? 0)) + Math.abs((a.y ?? 0)) + Math.abs((a.z ?? 0));
+      const delta = Math.abs(mag - lastMag);
+      lastMag = mag;
+      const now = Date.now();
+      if (delta > 32 && now - cool > 8000) {
+        cool = now;
+        coinRain();
+        if (!seen.current.has("shake")) {
+          seen.current.add("shake");
+          localStorage.setItem("sc-seen", JSON.stringify([...seen.current]));
+          gain(80, "📳 SHAKE IT!");
+        }
+      }
+    };
+    window.addEventListener("devicemotion", onMotion);
+    return () => window.removeEventListener("devicemotion", onMotion);
+  }, [gain, coinRain]);
+
   const level = [...LEVELS].reverse().find((l) => xp >= l.at) ?? LEVELS[0];
   const next = LEVELS.find((l) => l.at > xp);
   const levelP = next ? (xp - level.at) / (next.at - level.at) : 1;
@@ -147,19 +211,46 @@ export default function GameHUD() {
       </div>
 
       {/* Score chip — bottom left */}
-      <div style={{
-        position: "fixed", bottom: 24, left: 24, zIndex: 500,
-        background: "rgba(5,5,5,0.92)", border: "2px solid rgba(255,215,0,0.5)",
-        padding: "10px 14px", display: "flex", flexDirection: "column", gap: 6,
-        transform: bump ? "scale(1.12) rotate(-2deg)" : "scale(1)",
-        transition: "transform 0.3s cubic-bezier(0.34, 1.8, 0.64, 1)",
-        boxShadow: "0 8px 30px rgba(0,0,0,0.5)",
-        clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
-      }}>
+      <div
+        onPointerDown={() => {
+          const now = Date.now();
+          chipTaps.current = [...chipTaps.current.filter((t) => now - t < 2200), now];
+          if (chipTaps.current.length >= 5 && !seen.current.has("chiptap")) {
+            seen.current.add("chiptap");
+            localStorage.setItem("sc-seen", JSON.stringify([...seen.current]));
+            gain(50, "🥇 CHIP TAPPER x5");
+          }
+        }}
+        className="hud-chip"
+        style={{
+          position: "fixed", bottom: 24, left: 24, zIndex: 500,
+          background: "rgba(5,5,5,0.92)", border: "2px solid rgba(255,215,0,0.5)",
+          padding: "10px 14px", display: "flex", flexDirection: "column", gap: 6,
+          transform: bump ? "scale(1.12) rotate(-2deg)" : "scale(1)",
+          transition: "transform 0.3s cubic-bezier(0.34, 1.8, 0.64, 1)",
+          boxShadow: "0 8px 30px rgba(0,0,0,0.5)",
+          clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
+          cursor: "pointer", userSelect: "none",
+        }}
+      >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span style={{ fontSize: "1rem" }}>🕹️</span>
           <span className="pixel" style={{ fontSize: "0.6rem", color: "#FFD700" }}>{xp} XP</span>
           <span className="pixel" style={{ fontSize: "0.45rem", color: "#39FF14", border: "1px solid rgba(57,255,20,0.4)", padding: "3px 6px" }}>{level.name}</span>
+          <button
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              const next = !sound;
+              setSound(next);
+              setMuted(!next);
+              if (next) sfx.coin();
+            }}
+            aria-label={sound ? "Mute sounds" : "Enable sounds"}
+            style={{ background: "none", border: "1px solid rgba(255,215,0,0.3)", padding: "3px 7px", cursor: "pointer", fontSize: "0.75rem", lineHeight: 1 }}
+          >
+            {sound ? "🔊" : "🔇"}
+          </button>
         </div>
         <div style={{ width: "100%", height: 4, background: "rgba(255,215,0,0.12)" }}>
           <div style={{ width: `${levelP * 100}%`, height: "100%", background: "#FFD700", transition: "width 0.4s ease" }} />
@@ -177,6 +268,7 @@ export default function GameHUD() {
           key={c.id}
           onClick={() => {
             setCoins((k) => k.filter((x) => x.id !== c.id));
+            sfx.coin();
             gain(15, "💰 COIN GET!");
           }}
           aria-label="Collect coin"

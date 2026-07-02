@@ -1,4 +1,6 @@
 "use client";
+import { Word3D } from "@/app/components/Text3D";
+
 export default function Footer() {
   return (
     <footer style={{
@@ -11,7 +13,9 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 48, marginBottom: 48 }}>
           {/* Brand */}
           <div>
-            <div className="pixel" style={{ fontSize: "0.9rem", color: "#FFD700", marginBottom: 16 }}>SIXCLOUDS</div>
+            <div style={{ marginBottom: 16 }}>
+              <Word3D text="SIXCLOUDS" size="0.9rem" depth={4} wave={false} />
+            </div>
             <p style={{ color: "rgba(240,240,240,0.5)", fontSize: "0.9rem", lineHeight: 1.8, maxWidth: 280 }}>
               Perambur&apos;s premier gaming cafe. Private rooms, high-end setups, and a vibe that levels you up.
             </p>

@@ -125,10 +125,12 @@ export default function ShaderBackground() {
     const onMove = (e: PointerEvent) => { tx = e.clientX; ty = window.innerHeight - e.clientY; };
     window.addEventListener("pointermove", onMove, { passive: true });
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const isMobile = window.innerWidth < 768;
+    const scale = isMobile ? 0.5 : 0.66;
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.2 : 1.5);
     const resize = () => {
-      canvas.width = Math.floor(window.innerWidth * dpr * 0.66);
-      canvas.height = Math.floor(window.innerHeight * dpr * 0.66);
+      canvas.width = Math.floor(window.innerWidth * dpr * scale);
+      canvas.height = Math.floor(window.innerHeight * dpr * scale);
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
@@ -142,7 +144,7 @@ export default function ShaderBackground() {
       my += (ty - my) * 0.05;
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, t);
-      gl.uniform2f(uMouse, mx * dpr * 0.66, my * dpr * 0.66);
+      gl.uniform2f(uMouse, mx * dpr * scale, my * dpr * scale);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       raf = requestAnimationFrame(loop);
     };

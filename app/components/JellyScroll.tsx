@@ -12,6 +12,9 @@ export default function JellyScroll({ children }: { children: ReactNode }) {
     let last = window.scrollY;
     let vel = 0;
     let raf = 0;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const maxSkew = coarse ? 0.8 : 1.4;
+    const mult = coarse ? 0.012 : 0.018;
 
     const loop = () => {
       const y = window.scrollY;
@@ -21,7 +24,7 @@ export default function JellyScroll({ children }: { children: ReactNode }) {
 
       const el = ref.current;
       if (el) {
-        const skew = Math.max(-1.4, Math.min(1.4, vel * 0.018));
+        const skew = Math.max(-maxSkew, Math.min(maxSkew, vel * mult));
         const stretch = 1 + Math.min(0.008, Math.abs(vel) * 0.00006);
         el.style.transform = `skewY(${skew}deg) scaleY(${stretch})`;
       }
