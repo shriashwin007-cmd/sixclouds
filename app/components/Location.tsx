@@ -1,14 +1,11 @@
 "use client";
+import SectionHeader from "@/app/components/SectionHeader";
+
 export default function Location() {
   return (
-    <section style={{ padding: "80px 0 0", background: "rgba(8,8,8,0.78)" }}>
+    <section style={{ padding: "90px 0 0", background: "rgba(8,8,8,0.66)" }}>
       <div className="wrap">
-        <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <span className="section-tag">&gt; find us</span>
-          <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "#FFD700", lineHeight: 1.6 }}>
-            WHERE WE&apos;RE AT
-          </h2>
-        </div>
+        <SectionHeader index="08" tag="find us" lines={["WHERE WE'RE AT"]} watermark="BASE" />
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}>
           {/* Info */}

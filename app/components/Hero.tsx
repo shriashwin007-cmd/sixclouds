@@ -69,18 +69,30 @@ export default function Hero() {
 
       <FloatingPixels />
 
-      {/* Corner decorations */}
-      {[{ top: 80, left: 24 }, { top: 80, right: 24 }, { bottom: 40, left: 24 }, { bottom: 40, right: 24 }].map((pos, i) => (
-        <div key={i} style={{
-          position: "absolute", ...pos,
-          width: 32, height: 32,
-          borderTop: i < 2 ? "2px solid rgba(255,215,0,0.3)" : "none",
-          borderBottom: i >= 2 ? "2px solid rgba(255,215,0,0.3)" : "none",
-          borderLeft: i % 2 === 0 ? "2px solid rgba(255,215,0,0.3)" : "none",
-          borderRight: i % 2 === 1 ? "2px solid rgba(255,215,0,0.3)" : "none",
-          pointerEvents: "none",
-        }} />
-      ))}
+      {/* HUD corner labels */}
+      <div className="hero-hud" style={{ position: "absolute", top: 84, left: 28, pointerEvents: "none" }}>
+        <div className="mono" style={{ fontSize: "0.6rem", color: "rgba(57,255,20,0.65)", letterSpacing: "0.2em", lineHeight: 2 }}>
+          PLAYER 1<br />
+          <span style={{ color: "rgba(255,215,0,0.5)" }}>STATUS: READY</span>
+        </div>
+      </div>
+      <div className="hero-hud" style={{ position: "absolute", top: 84, right: 28, textAlign: "right", pointerEvents: "none" }}>
+        <div className="mono" style={{ fontSize: "0.6rem", color: "rgba(255,215,0,0.55)", letterSpacing: "0.2em", lineHeight: 2 }}>
+          HI-SCORE 4.9★<br />
+          <span style={{ color: "rgba(240,240,240,0.35)" }}>38 REVIEWS</span>
+        </div>
+      </div>
+      <div className="hero-hud" style={{ position: "absolute", bottom: 96, left: 28, pointerEvents: "none" }}>
+        <div className="mono" style={{ fontSize: "0.58rem", color: "rgba(240,240,240,0.3)", letterSpacing: "0.2em", lineHeight: 2 }}>
+          STAGE: PERAMBUR<br />CHENNAI — 600011
+        </div>
+      </div>
+      <div className="hero-hud" style={{ position: "absolute", bottom: 96, right: 28, textAlign: "right", pointerEvents: "none" }}>
+        <div className="mono" style={{ fontSize: "0.58rem", color: "rgba(255,215,0,0.45)", letterSpacing: "0.2em", lineHeight: 2 }}>
+          CREDITS: ∞<br />
+          <span style={{ color: "rgba(57,255,20,0.55)", animation: "blink 1.2s step-end infinite" }}>INSERT COIN</span>
+        </div>
+      </div>
 
       <div className="wrap" style={{ textAlign: "center", position: "relative", zIndex: 1, animation: mounted ? "floatUp 0.8s ease both" : "none" }}>
         {/* Logo */}
@@ -136,7 +148,10 @@ export default function Hero() {
         <div style={{ width: 1, height: 36, background: "linear-gradient(to bottom, rgba(255,215,0,0.5), transparent)" }} />
       </div>
 
-      <style>{`@media (max-width: 560px) { div[style*="repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; } }`}</style>
+      <style>{`
+        @media (max-width: 560px) { div[style*="repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; } }
+        @media (max-width: 760px) { .hero-hud { display: none !important; } }
+      `}</style>
     </section>
   );
 }

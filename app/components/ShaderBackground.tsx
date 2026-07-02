@@ -55,15 +55,16 @@ void main() {
   float mg = exp(-length(p - m) * 3.2) * 0.35;
 
   // palette: deep black -> ember gold -> bright gold
-  vec3 base = vec3(0.015, 0.014, 0.01);
-  vec3 ember = vec3(0.28, 0.19, 0.02);
+  vec3 base = vec3(0.02, 0.018, 0.012);
+  vec3 ember = vec3(0.32, 0.21, 0.03);
   vec3 gold  = vec3(1.0, 0.84, 0.0);
 
-  float glow = smoothstep(0.35, 0.85, cloud);
+  float glow = smoothstep(0.3, 0.85, cloud);
   vec3 col = base;
-  col += ember * glow * 0.55;
-  col += gold * pow(glow, 3.0) * 0.28;
-  col += gold * mg;
+  col += ember * glow * 0.9;
+  col += gold * pow(glow, 3.0) * 0.5;
+  col += vec3(0.5, 0.42, 0.05) * smoothstep(0.55, 1.0, fbm(p * 0.7 - t * 0.4)) * 0.35;
+  col += gold * mg * 1.4;
 
   // subtle green scan tint at edges (CRT vibe)
   col += vec3(0.02, 0.12, 0.01) * pow(1.0 - uv.y, 6.0) * 0.4;
@@ -72,7 +73,7 @@ void main() {
   vec2 g = fract(gl_FragCoord.xy / 48.0);
   float gridLine = (step(g.x, 0.02) + step(g.y, 0.02));
   float pulse = 0.5 + 0.5 * sin(uTime * 0.8 + uv.x * 4.0 + uv.y * 3.0);
-  col += vec3(1.0, 0.84, 0.0) * gridLine * 0.018 * pulse;
+  col += vec3(1.0, 0.84, 0.0) * gridLine * 0.032 * pulse;
 
   // twinkling star pixels
   vec2 cell = floor(gl_FragCoord.xy / 3.0);

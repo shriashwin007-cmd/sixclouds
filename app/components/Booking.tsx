@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useCart } from "@/app/context/CartContext";
-import { Word3D } from "@/app/components/Text3D";
+import SectionHeader from "@/app/components/SectionHeader";
 import { award } from "@/app/components/GameHUD";
 
 const SESSIONS = ["1 Hour – ₹100", "2 Hours – ₹180", "3 Hours – ₹250", "Full Evening (3PM–11PM) – ₹599"];
@@ -86,16 +86,10 @@ export default function Booking() {
   return (
     <section id="book" style={{ padding: "100px 0", background: "rgba(8,8,8,0.78)" }}>
       <div className="wrap">
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <span className="section-tag">&gt; book a session</span>
-          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
-            <Word3D text="RESERVE" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
-            <Word3D text="YOUR SLOT" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
-          </h2>
-          <p style={{ color: "rgba(240,240,240,0.5)", marginTop: 12, fontSize: "0.9rem" }}>
-            Open daily · 3 PM – 11 PM · Kennedy Square, Perambur
-          </p>
-        </div>
+        <SectionHeader index="07" tag="book a session" lines={["RESERVE", "YOUR SLOT"]} watermark="SPAWN" />
+        <p style={{ color: "rgba(240,240,240,0.5)", marginTop: -36, marginBottom: 44, fontSize: "0.9rem" }}>
+          Open daily · 3 PM – 11 PM · Kennedy Square, Perambur
+        </p>
 
         {cart.length > 0 && (
           <div style={{ maxWidth: 640, margin: "0 auto 24px", background: "rgba(255,215,0,0.06)", border: "1px solid rgba(255,215,0,0.25)", padding: "14px 18px" }}>

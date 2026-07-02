@@ -2,6 +2,8 @@ import { CartProvider } from "@/app/context/CartContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 import Navbar from "@/app/components/Navbar";
 import ShaderBackground from "@/app/components/ShaderBackground";
+import Atmosphere from "@/app/components/Atmosphere";
+import StripeDivider from "@/app/components/StripeDivider";
 import GameHUD from "@/app/components/GameHUD";
 import JellyScroll from "@/app/components/JellyScroll";
 import MiniGame from "@/app/components/MiniGame";
@@ -30,16 +32,20 @@ export default function Home() {
             <Hero />
             <Ticker />
             <About />
+            <StripeDivider label="LEVEL UP AT SIXCLOUDS" />
             <Features />
             <AddOns />
+            <StripeDivider label="FREE PLAY — SNACK SMASH" />
             <MiniGame />
             <Gallery3D />
+            <StripeDivider label="4.9★ RATED · PERAMBUR CHENNAI" />
             <Reviews />
             <Booking />
             <Location />
             <Footer />
           </JellyScroll>
         </div>
+        <Atmosphere />
         <GameHUD />
         <ChatWidget />
       </ToastProvider>

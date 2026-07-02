@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Word3D } from "@/app/components/Text3D";
+import SectionHeader from "@/app/components/SectionHeader";
 import { award } from "@/app/components/GameHUD";
 
 /*
@@ -73,10 +73,9 @@ export default function Gallery3D() {
 
   return (
     <section id="gallery" style={{ padding: "100px 0 120px", position: "relative", overflow: "hidden" }}>
-      <div className="wrap" style={{ textAlign: "center", marginBottom: 20 }}>
-        <span className="section-tag">&gt; gallery — drag to spin</span>
-        <Word3D text="THE ARENA" size="clamp(1rem, 2.6vw, 1.5rem)" />
-        <p style={{ color: "rgba(240,240,240,0.5)", marginTop: 14, fontSize: "0.9rem" }}>
+      <div className="wrap">
+        <SectionHeader index="05" tag="gallery — drag to spin" lines={["THE ARENA"]} watermark="VISUAL" />
+        <p style={{ color: "rgba(240,240,240,0.5)", marginTop: -32, marginBottom: 24, fontSize: "0.9rem" }}>
           A glimpse inside SIXCLOUDS · grab it, spin it 🕹️
         </p>
       </div>

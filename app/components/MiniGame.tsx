@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { Word3D } from "@/app/components/Text3D";
+import SectionHeader from "@/app/components/SectionHeader";
 import { award } from "@/app/components/GameHUD";
 
 /*
@@ -105,13 +105,12 @@ export default function MiniGame() {
   };
 
   return (
-    <section id="arcade" style={{ padding: "100px 0", background: "rgba(4,4,4,0.8)", position: "relative", overflow: "hidden" }}>
+    <section id="arcade" style={{ padding: "110px 0", background: "rgba(4,4,4,0.7)", position: "relative", overflow: "hidden" }}>
+      <div className="wrap">
+        <SectionHeader index="04" tag="insert coin — free play" lines={["SNACK SMASH"]} watermark="ARCADE" />
+      </div>
       <div className="wrap" style={{ textAlign: "center" }}>
-        <span className="section-tag">&gt; insert coin — free play</span>
-        <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center", marginBottom: 12 }}>
-          <Word3D text="SNACK SMASH" size="clamp(1rem, 2.6vw, 1.5rem)" depth={5} />
-        </h2>
-        <p style={{ color: "rgba(240,240,240,0.5)", marginBottom: 28, fontSize: "0.9rem" }}>
+        <p style={{ color: "rgba(240,240,240,0.5)", marginBottom: 28, fontSize: "0.9rem", marginTop: -24 }}>
           Smash the snacks &amp; controllers · ⭐ = +30 · avoid the 💣 · 20 seconds
         </p>
 

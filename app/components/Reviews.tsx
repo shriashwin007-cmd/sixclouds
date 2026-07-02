@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Word3D, Reveal3D } from "@/app/components/Text3D";
+import { Reveal3D } from "@/app/components/Text3D";
+import SectionHeader from "@/app/components/SectionHeader";
 
 const REVIEWS = [
   { name: "Arun K.", stars: 5, text: "Best gaming cafe in Perambur by far! Private rooms are a game changer. Came with my squad for 3 hours and we didn't even realize the time.", time: "2 weeks ago" },
@@ -13,19 +14,13 @@ export default function Reviews() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: "100px 0", background: "rgba(6,6,6,0.72)" }}>
+    <section style={{ padding: "110px 0", background: "rgba(6,6,6,0.6)" }}>
       <div className="wrap">
-        <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <span className="section-tag">&gt; player reviews</span>
-          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
-            <Word3D text="WHAT PLAYERS" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
-            <Word3D text="SAY" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
-          </h2>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginTop: 16 }}>
-            <span className="pixel" style={{ fontSize: "1.2rem", color: "#FFD700" }}>4.9</span>
-            <span style={{ color: "#FFD700", fontSize: "1.2rem" }}>★★★★★</span>
-            <span className="mono" style={{ color: "rgba(240,240,240,0.5)", fontSize: "0.75rem" }}>38 reviews on Google</span>
-          </div>
+        <SectionHeader index="06" tag="player reviews" lines={["WHAT PLAYERS", "SAY"]} watermark="FAME" />
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: -36, marginBottom: 40 }}>
+          <span className="pixel" style={{ fontSize: "1.2rem", color: "#FFD700" }}>4.9</span>
+          <span style={{ color: "#FFD700", fontSize: "1.2rem" }}>★★★★★</span>
+          <span className="mono" style={{ color: "rgba(240,240,240,0.5)", fontSize: "0.75rem" }}>38 reviews on Google</span>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
