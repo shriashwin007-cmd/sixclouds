@@ -1,7 +1,7 @@
 "use client";
 export default function Location() {
   return (
-    <section style={{ padding: "80px 0 0", background: "#080808" }}>
+    <section style={{ padding: "80px 0 0", background: "rgba(8,8,8,0.78)" }}>
       <div className="wrap">
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <span className="section-tag">&gt; find us</span>

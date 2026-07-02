@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Word3D } from "@/app/components/Text3D";
 
 const TYPED_STRINGS = [
   "GAME ABOVE THE REST.",
@@ -98,12 +99,8 @@ export default function Hero() {
           <div className="mono" style={{ fontSize: "0.72rem", color: "rgba(240,240,240,0.45)", letterSpacing: "0.3em" }}>GAMING CAFE</div>
         </div>
 
-        <h1 className="pixel" style={{
-          fontSize: "clamp(1.4rem, 4.5vw, 3rem)", lineHeight: 1.3,
-          marginBottom: 24, color: "#FFD700",
-          textShadow: "0 0 40px rgba(255,215,0,0.35)",
-        }}>
-          SIXCLOUDS
+        <h1 style={{ marginBottom: 24 }}>
+          <Word3D text="SIXCLOUDS" size="clamp(1.4rem, 4.5vw, 3rem)" depth={7} />
         </h1>
 
         <div className="mono" style={{ fontSize: "clamp(0.8rem, 1.8vw, 1.1rem)", color: "rgba(240,240,240,0.8)", marginBottom: 10, minHeight: "2em", letterSpacing: "0.06em" }}>

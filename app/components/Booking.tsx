@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useCart } from "@/app/context/CartContext";
+import { Word3D } from "@/app/components/Text3D";
 
 const SESSIONS = ["1 Hour – ₹100", "2 Hours – ₹180", "3 Hours – ₹250", "Full Evening (3PM–11PM) – ₹599"];
 const ROOM_TYPES = ["Any Available", "Private Room (Group of 4)"];
@@ -65,7 +66,7 @@ export default function Booking() {
 
   if (sent) {
     return (
-      <section id="book" style={{ padding: "100px 0", background: "#080808" }}>
+      <section id="book" style={{ padding: "100px 0", background: "rgba(8,8,8,0.78)" }}>
         <div className="wrap" style={{ textAlign: "center", maxWidth: 520, margin: "0 auto" }}>
           <div className="pixel" style={{ fontSize: "2.5rem", color: "#39FF14", marginBottom: 24 }}>✓</div>
           <h3 className="pixel" style={{ fontSize: "0.75rem", color: "#FFD700", lineHeight: 2, marginBottom: 16 }}>BOOKING REQUEST SENT!</h3>
@@ -81,12 +82,13 @@ export default function Booking() {
   }
 
   return (
-    <section id="book" style={{ padding: "100px 0", background: "#080808" }}>
+    <section id="book" style={{ padding: "100px 0", background: "rgba(8,8,8,0.78)" }}>
       <div className="wrap">
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <span className="section-tag">&gt; book a session</span>
-          <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "#FFD700", lineHeight: 1.6 }}>
-            RESERVE<br />YOUR SLOT
+          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
+            <Word3D text="RESERVE" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
+            <Word3D text="YOUR SLOT" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
           </h2>
           <p style={{ color: "rgba(240,240,240,0.5)", marginTop: 12, fontSize: "0.9rem" }}>
             Open daily · 3 PM – 11 PM · Kennedy Square, Perambur

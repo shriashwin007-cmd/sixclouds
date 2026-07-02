@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Word3D, Reveal3D } from "@/app/components/Text3D";
 
 const REVIEWS = [
   { name: "Arun K.", stars: 5, text: "Best gaming cafe in Perambur by far! Private rooms are a game changer. Came with my squad for 3 hours and we didn't even realize the time.", time: "2 weeks ago" },
@@ -12,12 +13,13 @@ export default function Reviews() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section style={{ padding: "100px 0", background: "#060606" }}>
+    <section style={{ padding: "100px 0", background: "rgba(6,6,6,0.72)" }}>
       <div className="wrap">
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <span className="section-tag">&gt; player reviews</span>
-          <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "#FFD700", lineHeight: 1.6 }}>
-            WHAT PLAYERS<br />SAY
+          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
+            <Word3D text="WHAT PLAYERS" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
+            <Word3D text="SAY" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
           </h2>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginTop: 16 }}>
             <span className="pixel" style={{ fontSize: "1.2rem", color: "#FFD700" }}>4.9</span>
@@ -28,11 +30,12 @@ export default function Reviews() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
           {REVIEWS.map((r, i) => (
+            <Reveal3D key={i} delay={i * 0.1} from={i % 2 === 0 ? "left" : "right"}>
             <div
-              key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               style={{
+                height: "100%",
                 background: hovered === i ? "rgba(255,215,0,0.05)" : "rgba(255,255,255,0.03)",
                 border: `1px solid ${hovered === i ? "rgba(255,215,0,0.3)" : "rgba(255,215,0,0.1)"}`,
                 padding: "28px 24px",
@@ -49,6 +52,7 @@ export default function Reviews() {
               </div>
               <p style={{ color: "rgba(240,240,240,0.72)", fontSize: "0.92rem", lineHeight: 1.75 }}>&quot;{r.text}&quot;</p>
             </div>
+            </Reveal3D>
           ))}
         </div>
       </div>

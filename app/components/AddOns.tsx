@@ -1,14 +1,16 @@
 "use client";
 import Link from "next/link";
+import { Word3D, Reveal3D } from "@/app/components/Text3D";
 
 export default function AddOns() {
   return (
-    <section id="add-ons" style={{ padding: "100px 0", background: "#060606" }}>
+    <section id="add-ons" style={{ padding: "100px 0", background: "rgba(6,6,6,0.72)" }}>
       <div className="wrap">
         <div style={{ textAlign: "center", marginBottom: 56 }}>
           <span className="section-tag">&gt; level up your session</span>
-          <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "#FFD700", lineHeight: 1.6 }}>
-            ADD-ONS &amp;<br />SNACKS
+          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
+            <Word3D text="ADD-ONS &" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
+            <Word3D text="SNACKS" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
           </h2>
           <p style={{ color: "rgba(240,240,240,0.5)", marginTop: 12 }}>
             Order beverages and snacks to be ready at your console.

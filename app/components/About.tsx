@@ -1,4 +1,5 @@
 "use client";
+import { Word3D, Reveal3D } from "@/app/components/Text3D";
 
 export default function About() {
   return (
@@ -6,10 +7,12 @@ export default function About() {
       <div className="wrap">
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           {/* Left */}
+          <Reveal3D from="left">
           <div>
             <span className="section-tag">&gt; about us</span>
-            <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)", color: "#FFD700", lineHeight: 1.6, marginBottom: 24 }}>
-              GAME ABOVE<br />THE REST.
+            <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-start", marginBottom: 24 }}>
+              <Word3D text="GAME ABOVE" size="clamp(1rem, 2.5vw, 1.5rem)" depth={5} />
+              <Word3D text="THE REST." size="clamp(1rem, 2.5vw, 1.5rem)" depth={5} />
             </h2>
             <p style={{ color: "rgba(240,240,240,0.7)", lineHeight: 1.8, marginBottom: 20, fontSize: "1.05rem" }}>
               SIXCLOUDS is Perambur&apos;s premier gaming cafe — built for gamers who demand the best.
@@ -25,8 +28,10 @@ export default function About() {
               <a href="#features" className="pixel-btn outline">See Features</a>
             </div>
           </div>
+          </Reveal3D>
 
           {/* Right — pixel art card */}
+          <Reveal3D from="right" delay={0.15}>
           <div style={{ position: "relative" }}>
             <div style={{
               background: "#0a0a0a",
@@ -69,6 +74,7 @@ export default function About() {
               pointerEvents: "none",
             }} />
           </div>
+          </Reveal3D>
         </div>
       </div>
 

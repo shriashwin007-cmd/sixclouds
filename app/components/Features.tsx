@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Word3D, Reveal3D } from "@/app/components/Text3D";
 
 const FEATURES = [
   {
@@ -44,22 +45,24 @@ export default function Features() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="features" style={{ padding: "100px 0", background: "#080808" }}>
+    <section id="features" style={{ padding: "100px 0", background: "rgba(8,8,8,0.78)" }}>
       <div className="wrap">
         <div style={{ textAlign: "center", marginBottom: 60 }}>
           <span className="section-tag">&gt; why sixclouds</span>
-          <h2 className="pixel" style={{ fontSize: "clamp(1rem, 2.5vw, 1.4rem)", color: "#FFD700", lineHeight: 1.6 }}>
-            BUILT FOR<br />REAL GAMERS
+          <h2 style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
+            <Word3D text="BUILT FOR" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
+            <Word3D text="REAL GAMERS" size="clamp(1rem, 2.5vw, 1.4rem)" depth={5} />
           </h2>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
           {FEATURES.map((f, i) => (
+            <Reveal3D key={f.title} delay={i * 0.09} from={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "bottom"}>
             <div
-              key={f.title}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               style={{
+                height: "100%",
                 background: hovered === i ? "rgba(255,215,0,0.06)" : "rgba(255,255,255,0.03)",
                 border: `1px solid ${hovered === i ? "rgba(255,215,0,0.4)" : "rgba(255,215,0,0.1)"}`,
                 padding: "28px 24px",
@@ -90,6 +93,7 @@ export default function Features() {
                 {f.tag}
               </span>
             </div>
+            </Reveal3D>
           ))}
         </div>
       </div>

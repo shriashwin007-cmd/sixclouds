@@ -1,13 +1,14 @@
 import { CartProvider } from "@/app/context/CartContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 import Navbar from "@/app/components/Navbar";
+import ShaderBackground from "@/app/components/ShaderBackground";
 import ScrollVideoIntro from "@/app/components/ScrollVideoIntro";
 import Hero from "@/app/components/Hero";
 import Ticker from "@/app/components/Ticker";
 import About from "@/app/components/About";
 import Features from "@/app/components/Features";
 import AddOns from "@/app/components/AddOns";
-import Gallery from "@/app/components/Gallery";
+import Gallery3D from "@/app/components/Gallery3D";
 import Reviews from "@/app/components/Reviews";
 import Booking from "@/app/components/Booking";
 import Location from "@/app/components/Location";
@@ -18,18 +19,21 @@ export default function Home() {
   return (
     <CartProvider>
       <ToastProvider>
+        <ShaderBackground />
         <Navbar />
         <ScrollVideoIntro />
-        <Hero />
-        <Ticker />
-        <About />
-        <Features />
-        <AddOns />
-        <Gallery />
-        <Reviews />
-        <Booking />
-        <Location />
-        <Footer />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <Hero />
+          <Ticker />
+          <About />
+          <Features />
+          <AddOns />
+          <Gallery3D />
+          <Reviews />
+          <Booking />
+          <Location />
+          <Footer />
+        </div>
         <ChatWidget />
       </ToastProvider>
     </CartProvider>
