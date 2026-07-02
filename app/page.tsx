@@ -1,6 +1,7 @@
 import { CartProvider } from "@/app/context/CartContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 import Navbar from "@/app/components/Navbar";
+import ScrollVideoIntro from "@/app/components/ScrollVideoIntro";
 import Hero from "@/app/components/Hero";
 import Ticker from "@/app/components/Ticker";
 import About from "@/app/components/About";
@@ -18,6 +19,7 @@ export default function Home() {
     <CartProvider>
       <ToastProvider>
         <Navbar />
+        <ScrollVideoIntro />
         <Hero />
         <Ticker />
         <About />
