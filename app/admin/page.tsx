@@ -15,7 +15,7 @@ type Booking = {
 
 type Override = { item_id: string; out_of_stock: boolean; hidden: boolean };
 
-const PASS_KEY = "sixclouds2026";
+const PASS_KEY = "1234";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false);

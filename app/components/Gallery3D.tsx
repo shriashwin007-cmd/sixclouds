@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Word3D } from "@/app/components/Text3D";
+import { award } from "@/app/components/GameHUD";
 
 /*
   3D ring carousel — 6 photo panels arranged on a cylinder.
@@ -50,10 +51,16 @@ export default function Gallery3D() {
     return () => cancelAnimationFrame(raf);
   }, [radius]);
 
+  const spinAwarded = useRef(false);
+
   const onDown = (e: React.PointerEvent) => {
     dragging.current = true;
     lastX.current = e.clientX;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    if (!spinAwarded.current) {
+      spinAwarded.current = true;
+      award(20, "🌀 SPIN MASTER");
+    }
   };
   const onMove = (e: React.PointerEvent) => {
     if (!dragging.current) return;

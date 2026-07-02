@@ -2,6 +2,9 @@ import { CartProvider } from "@/app/context/CartContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 import Navbar from "@/app/components/Navbar";
 import ShaderBackground from "@/app/components/ShaderBackground";
+import GameHUD from "@/app/components/GameHUD";
+import JellyScroll from "@/app/components/JellyScroll";
+import MiniGame from "@/app/components/MiniGame";
 import ScrollVideoIntro from "@/app/components/ScrollVideoIntro";
 import Hero from "@/app/components/Hero";
 import Ticker from "@/app/components/Ticker";
@@ -23,17 +26,21 @@ export default function Home() {
         <Navbar />
         <ScrollVideoIntro />
         <div style={{ position: "relative", zIndex: 1 }}>
-          <Hero />
-          <Ticker />
-          <About />
-          <Features />
-          <AddOns />
-          <Gallery3D />
-          <Reviews />
-          <Booking />
-          <Location />
-          <Footer />
+          <JellyScroll>
+            <Hero />
+            <Ticker />
+            <About />
+            <Features />
+            <AddOns />
+            <MiniGame />
+            <Gallery3D />
+            <Reviews />
+            <Booking />
+            <Location />
+            <Footer />
+          </JellyScroll>
         </div>
+        <GameHUD />
         <ChatWidget />
       </ToastProvider>
     </CartProvider>

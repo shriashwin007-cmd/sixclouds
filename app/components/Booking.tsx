@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useCart } from "@/app/context/CartContext";
 import { Word3D } from "@/app/components/Text3D";
+import { award } from "@/app/components/GameHUD";
 
 const SESSIONS = ["1 Hour – ₹100", "2 Hours – ₹180", "3 Hours – ₹250", "Full Evening (3PM–11PM) – ₹599"];
 const ROOM_TYPES = ["Any Available", "Private Room (Group of 4)"];
@@ -45,6 +46,7 @@ export default function Booking() {
 
     const WA = "919XXXXXXXXXX";
     window.open(`https://wa.me/${WA}?text=${msg}`, "_blank");
+    award(50, "🏅 BOOKING HERO");
     setSent(true);
     setSending(false);
   }

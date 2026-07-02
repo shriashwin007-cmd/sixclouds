@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Word3D } from "@/app/components/Text3D";
+import FloatingPixels from "@/app/components/FloatingPixels";
 
 const TYPED_STRINGS = [
   "GAME ABOVE THE REST.",
@@ -65,6 +66,8 @@ export default function Hero() {
         background: "radial-gradient(circle, rgba(255,215,0,0.07) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
+
+      <FloatingPixels />
 
       {/* Corner decorations */}
       {[{ top: 80, left: 24 }, { top: 80, right: 24 }, { bottom: 40, left: 24 }, { bottom: 40, right: 24 }].map((pos, i) => (
