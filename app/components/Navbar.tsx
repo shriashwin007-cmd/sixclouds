@@ -31,7 +31,7 @@ export default function Navbar() {
     }}>
       <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
         <a href="#home" style={{ textDecoration: "none" }}>
-          <span className="pixel" style={{ fontSize: "0.75rem", color: "#FFD700", letterSpacing: "0.04em" }}>6CLOUDS</span>
+          <span className="pixel" style={{ fontSize: "0.75rem", color: "#FFD700", letterSpacing: "0.04em" }}>LEVELUP GAMING</span>
         </a>
 
         <nav style={{ display: "flex", gap: 24, alignItems: "center" }}>
