@@ -118,7 +118,7 @@ export default function ScrollVideoIntro() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img ref={imgRef} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
 
-        {/* Loading bar — SIXCLOUDS gold theme */}
+        {/* Loading bar — LEVELUP GAMING gold theme */}
         {progress < 1 && (
           <div style={{
             position: "absolute", left: "50%", top: "50%",
@@ -126,7 +126,7 @@ export default function ScrollVideoIntro() {
             display: "flex", flexDirection: "column", alignItems: "center", gap: 14,
             pointerEvents: "none",
           }}>
-            <div className="pixel" style={{ fontSize: "0.6rem", color: "#FFD700", marginBottom: 4, letterSpacing: "0.1em" }}>SIXCLOUDS</div>
+            <div className="pixel" style={{ fontSize: "0.6rem", color: "#FFD700", marginBottom: 4, letterSpacing: "0.1em" }}>LEVELUP GAMING</div>
             <div style={{ width: 160, height: 3, background: "rgba(255,215,0,0.15)", overflow: "hidden" }}>
               <div style={{ width: `${Math.round(progress * 100)}%`, height: "100%", background: "#FFD700", transition: "width .2s ease" }} />
             </div>

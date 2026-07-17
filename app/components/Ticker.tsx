@@ -4,7 +4,7 @@ import { useRef } from "react";
 export default function Ticker() {
   const innerRef = useRef<HTMLDivElement>(null);
   const items = [
-    "SIXCLOUDS GAMING CAFE",
+    "LEVELUP GAMING CAFE",
     "PRIVATE ROOMS FOR GROUPS",
     "PERAMBUR · CHENNAI",
     "OPEN 3PM TO 11PM DAILY",

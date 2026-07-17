@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ marginBottom: 16 }}>
-              <Word3D text="SIXCLOUDS" size="0.9rem" depth={4} wave={false} />
+              <Word3D text="LEVELUP GAMING" size="0.9rem" depth={4} wave={false} />
             </div>
             <p style={{ color: "rgba(240,240,240,0.5)", fontSize: "0.9rem", lineHeight: 1.8, maxWidth: 280 }}>
               Perambur&apos;s premier gaming cafe. Private rooms, high-end setups, and a vibe that levels you up.
@@ -67,7 +67,7 @@ export default function Footer() {
           gap: 12,
         }}>
           <span className="mono" style={{ fontSize: "0.65rem", color: "rgba(240,240,240,0.3)", letterSpacing: "0.05em" }}>
-            © 2025 SIXCLOUDS Gaming Cafe. All rights reserved.
+            © 2025 LevelUp Gaming Cafe. All rights reserved.
           </span>
           <span className="mono" style={{ fontSize: "0.6rem", color: "rgba(255,215,0,0.3)" }}>
             GAME ABOVE THE REST ★

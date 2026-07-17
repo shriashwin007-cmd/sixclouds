@@ -1,7 +1,7 @@
 /*
   Hazard-stripe divider with scrolling label — physical arcade cabinet feel.
 */
-export default function StripeDivider({ label = "SIXCLOUDS ARCADE" }: { label?: string }) {
+export default function StripeDivider({ label = "LEVELUP GAMING ARCADE" }: { label?: string }) {
   const words = Array(10).fill(label);
   return (
     <div aria-hidden style={{ position: "relative", overflow: "hidden" }}>

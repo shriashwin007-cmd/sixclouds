@@ -104,7 +104,7 @@ export default function AdminPage() {
     return (
       <div style={{ minHeight: "100svh", background: "#050505", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ width: "min(380px, 90vw)", background: "#0a0a0a", border: "1px solid rgba(255,215,0,0.2)", padding: "40px 32px" }}>
-          <div className="pixel" style={{ fontSize: "0.65rem", color: "#FFD700", marginBottom: 8, textAlign: "center" }}>SIXCLOUDS</div>
+          <div className="pixel" style={{ fontSize: "0.65rem", color: "#FFD700", marginBottom: 8, textAlign: "center" }}>LEVELUP GAMING</div>
           <div className="pixel" style={{ fontSize: "0.55rem", color: "rgba(240,240,240,0.5)", marginBottom: 32, textAlign: "center", lineHeight: 1.8 }}>ADMIN PANEL</div>
           <input
             type="password" placeholder="Enter password" value={pw}
@@ -126,7 +126,7 @@ export default function AdminPage() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 28, flexWrap: "wrap", gap: 12 }}>
-          <div className="pixel" style={{ fontSize: "0.7rem", color: "#FFD700" }}>⚙ SIXCLOUDS ADMIN</div>
+          <div className="pixel" style={{ fontSize: "0.7rem", color: "#FFD700" }}>⚙ LEVELUP GAMING ADMIN</div>
           <div style={{ display: "flex", gap: 10 }}>
             <button onClick={fetchBookings} style={{ ...inputStyle, cursor: "pointer" }}>↻ Refresh</button>
             <button onClick={() => setAuthed(false)} style={{ ...inputStyle, cursor: "pointer", color: "#ff4d4d" }}>Logout</button>

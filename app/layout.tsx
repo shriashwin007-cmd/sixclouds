@@ -8,12 +8,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "SIXCLOUDS Gaming Cafe | Perambur, Chennai",
+  title: "LevelUp Gaming Cafe | Perambur, Chennai",
   description: "The ultimate gaming cafe in Perambur, Chennai. Private rooms, high-end setups, and non-stop action. Open 3 PM – 11 PM daily. 4.9★ on Google.",
-  keywords: "gaming cafe, gaming centre, perambur, chennai, sixclouds, 6 clouds, private gaming room, gaming lounge near me, kennedy square",
-  authors: [{ name: "SIXCLOUDS Gaming Cafe" }],
+  keywords: "gaming cafe, gaming centre, perambur, chennai, levelup-gaming, 6 clouds, private gaming room, gaming lounge near me, kennedy square",
+  authors: [{ name: "LevelUp Gaming Cafe" }],
   openGraph: {
-    title: "SIXCLOUDS Gaming Cafe — Game Above the Rest",
+    title: "LevelUp Gaming Cafe — Game Above the Rest",
     description: "Private rooms. Premium setups. 4.9 stars. Perambur, Chennai. Book now.",
     type: "website",
     locale: "en_IN",

@@ -35,7 +35,7 @@ export default function Atmosphere() {
         alignItems: "center", padding: "90px 0 40px", pointerEvents: "none",
       }}>
         <span className="mono" style={{ writingMode: "vertical-rl", fontSize: "0.58rem", letterSpacing: "0.32em", color: "rgba(255,215,0,0.32)" }}>
-          SIXCLOUDS © 2026 — GAMING CAFE
+          LEVELUP GAMING © 2026 — GAMING CAFE
         </span>
         <div style={{ width: 1, flex: 1, margin: "18px 0", background: "linear-gradient(to bottom, rgba(255,215,0,0.25), transparent)" }} />
         <span className="pixel" style={{ fontSize: "0.5rem", color: "rgba(255,215,0,0.4)", writingMode: "vertical-rl" }}>★★★★★</span>

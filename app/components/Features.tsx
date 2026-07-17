@@ -7,7 +7,7 @@ const FEATURES = [
   { title: "PRIVATE ROOMS", desc: "Book an entire room just for your squad. No interruptions, no strangers — pure focus with your crew.", tag: "EXCLUSIVE" },
   { title: "HIGH-END SETUPS", desc: "Top-tier rigs, ultra-low-latency displays, premium controllers. Every seat is built to perform.", tag: "PREMIUM" },
   { title: "FAST INTERNET", desc: "Blazing fiber with low ping for seamless online multiplayer. No lag. No excuses.", tag: "FIBER" },
-  { title: "TOURNAMENTS", desc: "In-house tournaments with prizes. Earn respect, become a SIXCLOUDS legend.", tag: "COMING SOON" },
+  { title: "TOURNAMENTS", desc: "In-house tournaments with prizes. Earn respect, become a LEVELUP GAMING legend.", tag: "COMING SOON" },
   { title: "FOOD & DRINKS", desc: "Snacks and energy drinks at the counter. Keep the energy up through long sessions.", tag: "IN-HOUSE" },
   { title: "LATE SESSIONS", desc: "Open till 11 PM every day. The evening marathon slots belong to you.", tag: "OPEN DAILY" },
 ];
@@ -27,7 +27,7 @@ export default function Features() {
   return (
     <section id="features" style={{ padding: "110px 0", background: "rgba(8,8,8,0.62)" }}>
       <div className="wrap">
-        <SectionHeader index="02" tag="why sixclouds" lines={["BUILT FOR", "REAL GAMERS"]} watermark="LOADOUT" />
+        <SectionHeader index="02" tag="why levelup-gaming" lines={["BUILT FOR", "REAL GAMERS"]} watermark="LOADOUT" />
 
         <div className="feat-cols" style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: 48, alignItems: "start" }}>
           {/* numbered editorial rows */}

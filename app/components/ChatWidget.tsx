@@ -15,7 +15,7 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
 
-  const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi! I want to book a session at SIXCLOUDS Gaming Cafe.")}`;
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi! I want to book a session at LevelUp Gaming Cafe.")}`;
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function ChatWidget() {
         }}>
           {/* Header */}
           <div style={{ background: "#FFD700", padding: "14px 18px" }}>
-            <div className="pixel" style={{ fontSize: "0.55rem", color: "#050505", marginBottom: 4 }}>SIXCLOUDS SUPPORT</div>
+            <div className="pixel" style={{ fontSize: "0.55rem", color: "#050505", marginBottom: 4 }}>LEVELUP GAMING SUPPORT</div>
             <div className="mono" style={{ fontSize: "0.7rem", color: "#333" }}>Ask us anything! 🎮</div>
           </div>
 

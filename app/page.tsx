@@ -33,7 +33,7 @@ export default function Home() {
             <Hero />
             <Ticker />
             <About />
-            <StripeDivider label="LEVEL UP AT SIXCLOUDS" />
+            <StripeDivider label="LEVEL UP AT LEVELUP GAMING" />
             <Features />
             <AddOns />
             <StripeDivider label="FREE PLAY — SNACK SMASH" />

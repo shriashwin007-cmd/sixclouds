@@ -8,7 +8,7 @@ const REVIEWS = [
   { name: "Arun K.", stars: 5, text: "Best gaming cafe in Perambur by far! Private rooms are a game changer. Came with my squad for 3 hours and we didn't even realize the time.", time: "2 weeks ago" },
   { name: "Priya S.", stars: 5, text: "Super clean setup, great environment. The private room was perfect for our group. Staff is friendly and helpful. Will definitely come back!", time: "1 month ago" },
   { name: "Vikram R.", stars: 5, text: "Loved the vibe here. Fast internet, smooth gameplay, no lag. This place is exactly what Perambur needed. 10/10 experience.", time: "3 weeks ago" },
-  { name: "Rohith M.", stars: 5, text: "Me and my friends come here every weekend now. Incredible gaming setups and very affordable. SIXCLOUDS is the real deal.", time: "1 week ago" },
+  { name: "Rohith M.", stars: 5, text: "Me and my friends come here every weekend now. Incredible gaming setups and very affordable. LevelUp Gaming is the real deal.", time: "1 week ago" },
 ];
 
 export default function Reviews() {

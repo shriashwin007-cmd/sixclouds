@@ -3,7 +3,7 @@ import { CartProvider } from "@/app/context/CartContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 
 export const metadata = {
-  title: "Snacks — SIXCLOUDS Gaming Cafe",
+  title: "Snacks — LevelUp Gaming Cafe",
 };
 
 export default function SnacksPage() {

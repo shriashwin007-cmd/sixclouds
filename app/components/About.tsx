@@ -21,7 +21,7 @@ export default function About() {
           <Reveal3D from="left">
             <div>
               <p style={{ color: "rgba(240,240,240,0.72)", lineHeight: 1.85, marginBottom: 18, fontSize: "1.05rem" }}>
-                SIXCLOUDS is Perambur&apos;s premier gaming cafe — built for gamers who demand
+                LEVELUP GAMING is Perambur&apos;s premier gaming cafe — built for gamers who demand
                 the best. Grinding ranked, hosting a squad night, or decompressing after
                 college: this is your arena.
               </p>
@@ -35,7 +35,7 @@ export default function About() {
                 padding: "18px 20px", marginBottom: 32,
               }}>
                 <div className="mono" style={{ fontSize: "0.6rem", color: "rgba(57,255,20,0.5)", letterSpacing: "0.2em", marginBottom: 12 }}>
-                  $ sixclouds --status
+                  $ levelup-gaming --status
                 </div>
                 {CHECKS.map((c, i) => (
                   <div key={c} className="mono" style={{ fontSize: "0.78rem", color: "rgba(240,240,240,0.75)", lineHeight: 2, display: "flex", gap: 10 }}>

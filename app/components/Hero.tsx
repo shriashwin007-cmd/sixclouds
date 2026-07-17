@@ -117,7 +117,7 @@ export default function Hero() {
         </div>
 
         <h1 style={{ marginBottom: 24 }}>
-          <Word3D text="SIXCLOUDS" size="clamp(1.4rem, 4.5vw, 3rem)" depth={7} />
+          <Word3D text="LEVELUP GAMING" size="clamp(1.4rem, 4.5vw, 3rem)" depth={7} />
         </h1>
 
         <div className="mono" style={{ fontSize: "clamp(0.8rem, 1.8vw, 1.1rem)", color: "rgba(240,240,240,0.8)", marginBottom: 10, minHeight: "2em", letterSpacing: "0.06em" }}>

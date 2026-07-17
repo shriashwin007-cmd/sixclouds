@@ -38,10 +38,10 @@ export default function Booking() {
       : "";
 
     const msg = encodeURIComponent(
-      `*New Booking — SIXCLOUDS Gaming Cafe*\n\n` +
+      `*New Booking — LevelUp Gaming Cafe*\n\n` +
       `Name: ${form.name}\nPhone: ${form.phone}\nDate: ${form.date}\nSession: ${form.session}\n` +
       `Room: ${form.room || "Any available"}\nPlayers: ${form.players || "Not specified"}${cartSummary}\n` +
-      `Note: ${form.note || "None"}\n\n_via sixclouds website_`
+      `Note: ${form.note || "None"}\n\n_via levelup-gaming website_`
     );
 
     const WA = "919XXXXXXXXXX";

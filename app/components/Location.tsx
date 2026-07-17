@@ -26,7 +26,7 @@ export default function Location() {
 
             <div style={{ marginTop: 8 }}>
               <a
-                href="https://maps.google.com/?q=SIXCLOUDS+Gaming+Cafe+Perambur+Chennai"
+                href="https://maps.google.com/?q=LevelUp+Gaming+Cafe+Perambur+Chennai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pixel-btn"
@@ -54,7 +54,7 @@ export default function Location() {
               KENNEDY SQUARE<br />PERAMBUR, CHENNAI
             </span>
             <a
-              href="https://maps.google.com/?q=SIXCLOUDS+Gaming+Cafe+Perambur+Chennai"
+              href="https://maps.google.com/?q=LevelUp+Gaming+Cafe+Perambur+Chennai"
               target="_blank"
               rel="noopener noreferrer"
               className="pixel-btn outline"

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { sfx, isMuted, setMuted } from "@/app/lib/sfx";
 
 /*
-  SIXCLOUDS arcade gamification layer.
+  LEVELUP GAMING arcade gamification layer.
   - XP score persisted in localStorage, level system (NOOB → LEGEND)
   - XP bar under navbar doubles as scroll progress glow
   - Floating pixel coins spawn randomly — click to collect

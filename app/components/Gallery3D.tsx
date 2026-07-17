@@ -76,7 +76,7 @@ export default function Gallery3D() {
       <div className="wrap">
         <SectionHeader index="05" tag="gallery — drag to spin" lines={["THE ARENA"]} watermark="VISUAL" />
         <p style={{ color: "rgba(240,240,240,0.5)", marginTop: -32, marginBottom: 24, fontSize: "0.9rem" }}>
-          A glimpse inside SIXCLOUDS · grab it, spin it 🕹️
+          A glimpse inside LevelUp Gaming · grab it, spin it 🕹️
         </p>
       </div>
 
